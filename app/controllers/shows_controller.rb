@@ -1,4 +1,5 @@
 class ShowsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
   def index
     @shows = Show.all
@@ -40,4 +41,3 @@ class ShowsController < ApplicationController
     params.require(:show).permit(:title, :description, :price, :location, :capacity, :datetime)
   end
 end
-
