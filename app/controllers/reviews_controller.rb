@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_review, only: [:edit, :update]
+  before_action :find_review, only: [:edit, :update, :destroy]
   before_action :find_show, only: [:new, :create, :update]
   def new
     @review = Review.new
