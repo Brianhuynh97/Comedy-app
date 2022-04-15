@@ -10,8 +10,6 @@ puts "Cleaning database..."
 Show.destroy_all
 User.destroy_all
 
-seed_users = []
-
 puts "Creating 4 users - Connor, Brian, Ash & Sarah. Password is 'password'. Username is first name all lowercase."
 connor = User.create!(
   email: "connor@test.com",
@@ -21,7 +19,6 @@ connor = User.create!(
   last_name: "Sanderson",
   date_of_birth: DateTime.now
 )
-seed_users << connor
 
 brian = User.create!(
   email: "brian@test.com",
@@ -31,7 +28,6 @@ brian = User.create!(
   last_name: "Huynh",
   date_of_birth: DateTime.now
 )
-seed_users << brian
 
 ash = User.create!(
   email: "ashmeet@test.com",
@@ -41,7 +37,6 @@ ash = User.create!(
   last_name: "Khurana",
   date_of_birth: DateTime.now
 )
-seed_users << ash
 
 sarah = User.create!(
   email: "sarah.pelham@gmail.com",
@@ -51,11 +46,7 @@ sarah = User.create!(
   last_name: "Pelham",
   date_of_birth: DateTime.now
 )
-seed_users << sarah
 puts "Finished creating 4 users - Connor, Brian & Ash host shows, Sarah is a customer."
-seed_users.each do |user|
-  puts "#{user.id}, #{user.username}"
-end
 
 puts "Creating 5 shows, hosted by Connor, Brian & Ash"
 Show.create!(
@@ -65,7 +56,7 @@ Show.create!(
   location: "Elephant and Wheelbarrow Melbourne, 96 Bourke St, Melbourne",
   datetime: DateTime.now,
   capacity: 20,
-  user_id: 25
+  user_id: connor.id
 )
 
 Show.create!(
@@ -75,7 +66,7 @@ Show.create!(
   location: "Khokolat Bar, 43 Hardware Ln, Melbourne",
   datetime: DateTime.now,
   capacity: 20,
-  user_id: 26
+  user_id: connor.id
 )
 
 Show.create!(
@@ -85,7 +76,7 @@ Show.create!(
   location: "Trades Hall - The Meeting Room, 54 Victoria St, Carlton",
   datetime: DateTime.now,
   capacity: 10,
-  user_id: 26
+  user_id: brian.id
 )
 
 Show.create!(
@@ -95,7 +86,7 @@ Show.create!(
   location: "Stamford Plaza Melbourne, 111 Lt Collins St, Melbourne",
   datetime: DateTime.now,
   capacity: 100,
-  user_id: 27
+  user_id: brian.id
 )
 
 Show.create!(
@@ -105,6 +96,6 @@ Show.create!(
   location: "Comedy Republic, 231 Bourke St, Melbourne",
   datetime: DateTime.now,
   capacity: 40,
-  user_id: 27
+  user_id: ash.id
 )
 puts "Finished creating 5 shows"
