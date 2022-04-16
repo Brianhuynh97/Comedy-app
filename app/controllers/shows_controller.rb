@@ -3,6 +3,14 @@ class ShowsController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
   def index
     @shows = Show.all
+
+    @markers = @shows.geocoded.map do |show|
+      {
+        lat: show.latitude,
+        lng: show.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { show: show })
+      }
+    end
   end
 
   def show
