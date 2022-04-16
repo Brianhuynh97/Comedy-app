@@ -1,0 +1,13 @@
+<div class="bg-white container w-75 p-5 my-5">
+  <h1>List a new comedy show</h1>
+  <%= simple_form_for [@show] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :location %>
+    <%= f.input :capacity %>
+    <%= f.input :datetime %>
+    <%= f.button :submit, class: "btn btn-success btn-lg" %>
+  <% end %>
+
+</div>
