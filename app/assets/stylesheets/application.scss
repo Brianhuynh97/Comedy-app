@@ -13,3 +13,35 @@
 @import "components/index";
 @import "pages/index";
 @import "components/banner";
+
+:root {
+  --background: #000;
+  --text: #FFF;
+  --highlight: #379af6;
+}
+
+h1,
+h3 {
+  .theme-switch {
+    --background: rgb(255, 255, 255);
+    --text: #000;
+    color: var(--text);
+    // width: 70px;
+    // height: 30px;
+    background: var(--highlight);
+    // border-radius: 50px;
+    // position: relative;
+
+  }
+
+
+  .light-theme {
+    --background: #FFF;
+    --text: #000;
+    background: var(--background);
+
+    .theme-switch {
+      background: var(--text);
+    }
+  }
+}
