@@ -1,0 +1,24 @@
+<h1><%= @show.title %> </h1>
+<h2><%= @show.description %> </h2>
+<div class="card-trip">
+  <img src="https://source.unsplash.com/random/?comedy-show" class= "col-md-4 p-2 d-flex justify-content-center border border-light p-5" />
+<div class="card-trip-infos">
+  <table>
+    <tbody>
+      <tr>
+        <td><h4> <i class="fa fa-calendar" aria-hidden="true"></i></h4></td>
+        <td><h4> &nbsp; You asked to join a comedy show on : <br>  &nbsp; <%= @show.datetime %> </h4></td>
+      </tr>
+      <tr>
+        <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
+        <td><h4> &nbsp; The total price for your booking is <%= @show.price %> AUD</h4></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<%= simple_form_for [ @show, @booking ] do |f| %>
+  <%= f.input :seat_quantity, as: :string, required: true %>
+  <%= f.submit "Confirm Booking", class: "btn btn-danger btn-lg" %>
+<% end %>

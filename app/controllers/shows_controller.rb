@@ -6,10 +6,11 @@ class ShowsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
-    @Show = Show.new
+    @show = Show.new
   end
 
   def create
