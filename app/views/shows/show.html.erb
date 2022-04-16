@@ -20,7 +20,7 @@
                 review_path(review),
                 method: :delete,
                 data: { confirm: "Are you sure you want to delete this task?" } %></p>
-          <p>Posted by: <%= User.find(review.user_id).username %> <%= time_ago_in_words(review.created_at)%> ago</p>
+          <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
         </div>
       <% end %>
     <% else %>
