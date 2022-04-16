@@ -14,24 +14,28 @@
 @import "pages/index";
 @import "components/banner";
 
-:root {
-  --background: #000;
-  --text: #FFF;
-  --highlight: #379af6;
-}
 
 h1,
-h3 {
+h3,
+a,
+.Host_comedy {
+  color: var(--text);
+
   .theme-switch {
     --background: rgb(255, 255, 255);
     --text: #000;
-    color: var(--text);
+
     // width: 70px;
     // height: 30px;
-    background: var(--highlight);
+    // background: var(--highlight);
     // border-radius: 50px;
     // position: relative;
-
+    .switch {
+      background: white;
+      // width: 24px;
+      // height: 24px;
+      background: var(--background);
+    }
   }
 
 
@@ -42,6 +46,38 @@ h3 {
 
     .theme-switch {
       background: var(--text);
+
+      .switch {
+        transform: translateX(37px);
+      }
     }
   }
 }
+
+// .Host_comedy {
+//   &:before {
+//     color: #379af6;
+//     transform: translateX(-100%);
+//     opacity: 0;
+//   }
+
+//   &:hover {
+//     &:before {
+//       opacity: 1;
+//       transition: 0.5s transform ease, 0.8s opacity ease;
+//       transform: translateX(0);
+//     }
+//   }
+
+
+
+//   .active {
+//     color: #379af6;
+
+//     &:hover {
+//       &:before {
+//         opacity: 0;
+//       }
+//     }
+//   }
+// }
