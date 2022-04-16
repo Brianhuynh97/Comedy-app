@@ -40,9 +40,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @show = @review.show
     @review.destroy
-    # may want to redirect to the show_path(@show)
-    redirect_to shows_path
+    redirect_to show_path(@show)
   end
 
   private

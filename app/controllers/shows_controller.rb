@@ -6,6 +6,8 @@ class ShowsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = Review.where(show_id: params[:id])
   end
 
   def new
