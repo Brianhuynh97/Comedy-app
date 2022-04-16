@@ -22,3 +22,33 @@
   <%= f.input :seat_quantity, as: :string, required: true %>
   <%= f.submit "Confirm Booking", class: "btn btn-danger btn-lg" %>
 <% end %>
+
+<div class="container mt-5 bg-white p-5 rounded">
+  <h1 ><%= @show.title%> </h1>
+  <h3><%= @show.description %></h3>
+  <div class="my-5">
+    <h3>Leave a review</h3>
+    <%= simple_form_for [@show, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :comment %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+  <h4 class="mt-5 d-flex justify-content-between">Reviews</h4>
+  <% if !@reviews.empty? %>
+      <% @reviews.each do |review| %>
+        <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
+          <p><%= review.comment %> - Rating: <%= review.rating %> <%= link_to ('<i class="fa-solid fa-trash-can"></i>').html_safe,
+                review_path(review),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete this task?" } %></p>
+          <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
+        <p>Be the first to leave a review</p>
+      </div>
+  <% end %>
+</div>
