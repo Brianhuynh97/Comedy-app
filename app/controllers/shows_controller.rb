@@ -16,10 +16,11 @@ class ShowsController < ApplicationController
   def show
     @review = Review.new
     @reviews = Review.where(show_id: params[:id])
+    @booking = Booking.new
   end
 
   def new
-    @Show = Show.new
+    @show = Show.new
   end
 
   def create
