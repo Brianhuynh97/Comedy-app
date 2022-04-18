@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(0, 0, 0);
 }
 
 :root {
@@ -11,15 +11,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
-// body {
-//   background: var(--background);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: 100vh;
-//   overflow: hidden;
-//   transition: 0.5s var(--background) ease;
-// }
+body {
+  background: var(--background);
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   height: 100vh;
+  // overflow: hidden;
+  transition: 0.5s var(--background) ease;
+}
 
 .container {
   left: 0;
@@ -27,11 +27,11 @@
   // display: flex;
   // align-items: center;
   // justify-content: center;
-  flex-direction: column;
+  // flex-direction: column;
 }
 
 .theme-switch {
-  --background: #FFF;
+  --background: rgb(255, 255, 255);
   --text: #000;
   color: var(--text);
   width: 70px;
@@ -76,7 +76,7 @@
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
 }
 
 ul {

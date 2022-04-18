@@ -1,10 +1,12 @@
-<div class="navbar-wagon navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "/microphone.png" %>
+  <%= link_to shows_path, class: "navbar-brand" do %>
+    <img src="/assets/mic.png" width="80" height="80"/>
   <% end %>
-
-  <div class="container">
+<%# Main Navigation %>
+<body>
+<%# <div class="navbar-wagon-right hidden-xs hidden-sm"> %>
+<div class="container" data-controller="navbar_controller">
     <div class="theme-switch">
       <div class="switch"></div>
     </div>
@@ -12,10 +14,12 @@
       <ul>
         <a href="" class="active" target="_blank">Latest Show</a>
         <a href="" target="_blank">Booking</a>
-        <a href="" target="_blank">Contact</a>
-        <a href="" target="_blank">About</a>
+        <a href="" target="_blank">Log In</a>
+        <a href="" target="_blank">Sign Up</a>
       </ul>
     </div>
-  </div>
+</div>
+</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="main.js"></script>
+</body>
+</div>
