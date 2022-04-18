@@ -66,5 +66,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'geocoder'
-gem 'attachinary'
+# gem 'attachinary'
 gem 'jquery-rails'
+gem 'cloudinary', '~> 1.16.0'

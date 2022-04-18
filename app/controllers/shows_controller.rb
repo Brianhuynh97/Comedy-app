@@ -24,8 +24,10 @@ class ShowsController < ApplicationController
   end
 
   def create
-    show = Show.new(show_params)
-    show.save
+    @show = Show.new(show_params)
+    @show.user = current_user
+    @show.save!
+
     redirect_to shows_path
   end
 
@@ -49,6 +51,6 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:title, :description, :price, :location, :capacity, :datetime)
+    params.require(:show).permit(:title, :description, :price, :location, :capacity, :datetime, :photo)
   end
 end
