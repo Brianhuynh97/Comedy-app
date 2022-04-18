@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :shows
   has_many :reviews, through: :bookings
   has_many :bookings
+  has_one_attached :photo
+
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
   devise :database_authenticatable, :registerable,
