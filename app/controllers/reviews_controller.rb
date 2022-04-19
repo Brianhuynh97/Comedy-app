@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_review, only: [:edit, :update, :destroy]
-  before_action :find_show, only: [:new, :create, :update]
+  before_action :find_show, only: [:new, :create]
   def new
     @review = Review.new
     # @show = Show.find(params[:show_id])
@@ -10,8 +10,6 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     # @show = Show.find(params[:show_id])
     @review.show = @show
-
-    #confirm this line
     @review.user = current_user
 
     @review.save
@@ -30,6 +28,7 @@ class ReviewsController < ApplicationController
   def update
     # @review = Review.find(params[:id])
     # @show = Show.find(params[:show_id])
+    @show = @review.show
     @review.update(review_params)
     if @review.update(review_params)
       redirect_to show_path(@show)
