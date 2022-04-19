@@ -1,0 +1,18 @@
+<div class="bg-white rounded p-5 my-5 container w-75">
+  <h2 class="my-3">My Shows</h2>
+  <% @shows.each do |show| %>
+    <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
+            <h4><%= show.title %></h4>
+            <h4> <i class="fa fa-calendar" aria-hidden="true"></i> <%= show.datetime.strftime("%d/%m/%Y %H:%M") %> </h4>
+    </div>
+  <% end %>
+
+  <h2 class="my-3">My Bookings</h2>
+  <% @bookings.each do |booking| %>
+    <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
+            <h4><%=Show.find(booking.show_id).title%></h4>
+            <h4>Number of seats booked: <%= booking.seat_quantity %> </h4>
+            <h4> <i class="fa fa-calendar" aria-hidden="true"></i> <%= Show.find(booking.show_id).datetime.strftime("%d/%m/%Y %H:%M") %></h4>
+    </div>
+  <% end %>
+</div>

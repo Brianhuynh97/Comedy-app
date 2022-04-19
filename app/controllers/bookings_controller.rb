@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
   def create
     @show = Show.find(params[:show_id])
+    # @available_seats = @show.capacity
     @booking = Booking.new(booking_params)
     @booking.show = @show
     @booking.user = current_user
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to lists_path
     else
       redirect_to show_path(@show)
     end

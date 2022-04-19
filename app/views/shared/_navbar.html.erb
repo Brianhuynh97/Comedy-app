@@ -1,25 +1,56 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top mx-2">
   <!-- Logo -->
   <%= link_to shows_path, class: "navbar-brand" do %>
-    <img src="/assets/mic.png" width="80" height="80"/>
+    <img src="/assets/mic.png" width="40" height="40"/>
   <% end %>
-<%# Main Navigation %>
+<%# Right Navigation %>
 <body>
-<%# <div class="navbar-wagon-right hidden-xs hidden-sm"> %>
-<div class="container" data-controller="navbar_controller">
-    <div class="theme-switch">
+
+<div class="container">
+    <div class="theme-switch" data-controller="navbar_controller">
       <div class="switch"></div>
     </div>
+
+  <!-- Different navigation if login or not -->
+  <% if user_signed_in? %>
+  <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <% if current_user.photo.attached?  %>
+            <%= cl_image_tag current_user.photo.key, height: 40, crop: :fill, class: "avatar-navbar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+          <ul class="navbar-dropdown-menu">
+            <li class="text-center">
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li class="text-center">
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li class="text-center">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+  </div>
+
+  <% else %>
+
     <div class="navigation">
       <ul>
-        <a href="" class="active" target="_blank">Latest Show</a>
-        <a href="" target="_blank">Booking</a>
-        <a href="" target="_blank">Log In</a>
-        <a href="" target="_blank">Sign Up</a>
+      <%= link_to t(".index", default: "Latest Show"), shows_path, class: "navbar-item navbar-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-item navbar-link" %>
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-item navbar-link" %>
       </ul>
     </div>
-</div>
-</div>
+  <% end %>
+
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </div>

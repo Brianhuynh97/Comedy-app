@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
+  # validates :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

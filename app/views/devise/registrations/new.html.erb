@@ -1,6 +1,6 @@
-<div class="container" style="background-image: url(/assets/microphone.jpg);">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+<div class="container-registration container bg-light w-75 p-5">
+  <div class="row-register">
+    <div class="signup">
       <div class="form text-center" ;>
         <h2>Sign up</h2>
         <br>
@@ -9,6 +9,10 @@
 
         <div class="form-inputs">
         <%= f.input :first_name, required: true %>
+        <%= f.input :last_name,
+                required: true %>
+        <%= f.input :username,
+                required: true%>
         <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -20,13 +24,6 @@
         <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-
-        <%= f.input :username,
-                required: true%>
-        <%= f.input :first_name,
-                required: true %>
-        <%= f.input :last_name,
-                required: true %>
         <%= f.input :date_of_birth,
                 required: true %>
         <%= f.input :photo, as: :file %>
@@ -34,7 +31,7 @@
       </div>
         <br>
         <div class="form-actions">
-        <%= f.button :submit, "Sign up", class:"btn btn-medium"%>
+        <%= f.button :submit, "Sign up", class:"btn btn-success"%>
         </div>
         <br>
         <hr>
