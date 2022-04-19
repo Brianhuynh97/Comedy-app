@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
       redirect_to show_path(@show)
     else
       # render :show as review form will be on the show page
-      render :show
+      render 'shows/show'
     end
   end
 
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
       redirect_to show_path(@show)
     else
       # render :show as review form will be on the show page
-      render :show
+      render 'shows/show'
     end
   end
 
