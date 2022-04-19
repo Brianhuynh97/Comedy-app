@@ -16,15 +16,16 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Comedy Shows <img src="/assets/clown.gif" width="30" height="30" style="black"></h3>
-    <%= link_to "Host a comedy show", new_show_path, class: "Host_comedy btn btn-flat" %>
+    <%= link_to "Host a comedy show", new_show_path, class: "Host_comedy btn btn-success" %>
   </div>
   <div class="row">
     <% @shows.each do |show| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to show_path(show), class:"text-decoration-none" do %>
-          <%# <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(list.photo.key) : asset_path('list_background.jpg') %>
+        <%= link_to show_path(show), class: "text-decoration-none" do %>
+
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
             <%= show.title %>
-          <%# </div> %>
+          </div>
         <% end %>
       </div>
     <% end %>
