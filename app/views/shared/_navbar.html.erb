@@ -1,7 +1,7 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top mx-2">
   <!-- Logo -->
   <%= link_to shows_path, class: "navbar-brand" do %>
-    <img src="/assets/mic.png" width="80" height="80"/>
+    <img src="/assets/mic.png" width="40" height="40"/>
   <% end %>
 <%# Right Navigation %>
 <body>
@@ -15,7 +15,9 @@
   <% if user_signed_in? %>
   <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= cl_image_tag current_user.photo.key, height: 40, crop: :fill, class: "avatar-navbar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.photo.attached?  %>
+            <%= cl_image_tag current_user.photo.key, height: 40, crop: :fill, class: "avatar-navbar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
+          <% end %>
           <ul class="navbar-dropdown-menu">
             <li class="text-center">
               <%= link_to edit_user_registration_path do %>
