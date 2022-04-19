@@ -17,6 +17,12 @@ class ShowsController < ApplicationController
     @review = Review.new
     @reviews = Review.where(show_id: params[:id])
     @booking = Booking.new
+
+    bookings = Booking.where(show_id: params[:id])
+    @available_seats = @show.capacity
+    bookings.each do |booking|
+      @available_seats -= booking.seat_quantity
+    end
   end
 
   def new

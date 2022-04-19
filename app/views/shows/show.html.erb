@@ -24,7 +24,7 @@
       <tbody>
         <tr>
           <td><h4> <i class="fa fa-calendar" aria-hidden="true"></i></h4></td>
-          <td><h4> &nbsp; The show is on: <%= @show.datetime %> </h4></td>
+          <td><h4> &nbsp; The show is on: <%= @show.datetime.strftime("%d/%m/%Y %H:%M") %> </h4></td>
         </tr>
         <tr>
           <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
@@ -34,6 +34,7 @@
     </table>
   </div>
   <h3 class="mt-3"> Book the show today </h3>
+  <h5><%= @available_seats%> seats remaining</h5>
   <%= simple_form_for [ @show, @booking ] do |f| %>
     <%= f.input :seat_quantity, as: :string, required: true %>
     <%= f.submit "Confirm Booking", class: "btn btn-success btn-lg" %>
