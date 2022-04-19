@@ -34,6 +34,7 @@
     </table>
   </div>
   <h3 class="mt-3"> Book the show today </h3>
+  <h5><%= @available_seats%> seats remaining</h5>
   <%= simple_form_for [ @show, @booking ] do |f| %>
     <%= f.input :seat_quantity, as: :string, required: true %>
     <%= f.submit "Confirm Booking", class: "btn btn-success btn-lg" %>
