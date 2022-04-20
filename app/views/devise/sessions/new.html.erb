@@ -1,20 +1,86 @@
-<h2>Log in</h2>
+<div class="container-login container bg-light w-75 p-5">
+  <div class="row-login">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
+      <div class="load">
+        <hr/><hr/><hr/><hr/>
+      </div>
+
+    <div class="login">
+
+      <div class="form text-center">
+
+        <h2>Log in</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+          <%= f.input :email,
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
+          <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+      <div class="form-actions">
+          <%= f.button :submit, "Log in" %>
+      </div>
+      <%= render "devise/shared/links" %>
+      <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
+<style>
+.container-login {
+  background: rgba(241, 206, 184, 1);
+  background:
+    -moz-linear-gradient(
+      -45deg,
+      rgba(241, 206, 184, 1) 0%,
+      rgba(142, 186, 163, 1) 100%
+  );
+  background:
+    -webkit-linear-gradient(
+      -45deg,
+      rgba(241, 206, 184, 1) 0%,
+      rgba(142, 186, 163, 1) 100%);
+  width: 1170px;
+  padding-top: 40px;
+  padding-bottom: 90px;
+}
+
+.form {
+  border-radius: 3px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 30px;
+}
+
+.load{position:absolute;top:27%;left:56%;transform:translate(-50%, -50%);
+  width:50px;
+  height:50px;
+}
+.load hr{border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite}
+
+.load :first-child{background:#19A68C;animation-delay:-1.5s}
+.load :nth-child(2){background:#F63D3A;animation-delay:-1s}
+.load :nth-child(3){background:#FDA543;animation-delay:-0.5s}
+.load :last-child{background:#193B48}
+
+@keyframes spin{
+  0%,100%{transform:translate(0)}
+  25%{transform:translate(160%)}
+  50%{transform:translate(160%, 160%)}
+  75%{transform:translate(0, 160%)}
+}
+
+.form h2 {
+  font-weight: bold;
+  color: #7a4b4b;
+}
+
+</style>
