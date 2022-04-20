@@ -56,6 +56,29 @@ a,
   }
 }
 
+.review-icons {
+
+  a {
+    color: red;
+  }
+
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.review {
+  p {
+    margin: 0;
+  }
+
+  .review-stars {
+    color: gold
+  }
+}
+
+
 // .Host_comedy {
 //   &:before {
 //     color: #379af6;

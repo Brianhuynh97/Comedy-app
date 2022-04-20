@@ -10,12 +10,21 @@
     <h3 class="typed-js"></h3>
   </div>
 
+<div class="box">Fill With <div class="word">
+    <span> Joy</span>
+    <span> Happiness</span>
+    <span> Laughter</span>
+    <span> Comfort</span>
+  </div>
+</div>
+
 </div>
 </div>
 
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">Comedy Shows <img src="/assets/clown.gif" width="30" height="30" style="black"></h3>
+    <h3 class="mb-0">Comedy Shows <%= image_tag 'clown.gif', width: 30, height: 30, :style => 'black' %>
+    </h3>
     <%= link_to "Host a comedy show", new_show_path, class: "Host_comedy btn btn-success" %>
   </div>
   <div class="row">

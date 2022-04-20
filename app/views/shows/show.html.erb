@@ -14,11 +14,7 @@
 
 
 <section class="bg-white rounded p-5 my-5 container w-75">
-
-  <div>
-    <h4><%= @show.description %></h4>
-  </div>
-
+  <h4><%= @show.description %></h4>
   <div class=" mt-5 card-trip-infos">
     <table>
       <tbody>
@@ -30,34 +26,103 @@
           <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
           <td><h4> &nbsp; The ticket price is <%= @show.price %> AUD</h4></td>
         </tr>
+        <tr>
+          <td><h4> <i class="fa-solid fa-chair"></i></h4></td>
+          <td><h4> &nbsp; <%= @available_seats%> seats remaining</h4></td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <h3 class="mt-3"> Book the show today </h3>
-  <h5><%= @available_seats%> seats remaining</h5>
-  <%= simple_form_for [ @show, @booking ] do |f| %>
-    <%= f.input :seat_quantity, as: :string, required: true %>
-    <%= f.submit "Confirm Booking", class: "btn btn-success btn-lg" %>
-  <% end %>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#bookModal">
+    Book Now
+  </button>
 
-  <div class=" my-5">
-    <h3>Leave a review</h3>
-    <%= simple_form_for [@show, @review] do |f| %>
-      <%= f.input :rating %>
-      <%= f.input :comment %>
-      <%= f.button :submit, class: "btn btn-success btn-lg"%>
-    <% end %>
+  <!-- Modal -->
+  <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookModalLabel">Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <%= simple_form_for [ @show, @booking ] do |f| %>
+              <%= f.input :seat_quantity, as: :string, required: true %>
+              <%= f.submit "Confirm Booking", class: "btn btn-success btn-lg" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <h4 class="mt-5 d-flex justify-content-between">Reviews</h4>
+
+  <div class="mt-5 d-flex justify-content-between">
+    <h4>Reviews</h4>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newModal">
+      Create Review
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newModalLabel">Create Review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@show, @review] do |f| %>
+              <%= f.input :rating %>
+              <%= f.input :comment %>
+              <%= f.button :submit, class: "btn btn-success btn-lg"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
-        <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
-          <p><%= review.comment %> - Rating: <%= review.rating %> <%= link_to ('<i class="fa-solid fa-trash-can"></i>').html_safe,
+        <div class="card bg-light rounded mt-2 p-3 d-flex review">
+          <p class="d-flex justify-content-between"><span class="review-stars mb-1"><% review.rating.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+          </span>
+          <span class="review-icons flex-end"><%= link_to ('<i class="fa-solid fa-trash-can"></i>').html_safe,
                 review_path(review),
                 method: :delete,
-                data: { confirm: "Are you sure you want to delete this task?" } %></p>
-          <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
+                data: { confirm: "Are you sure you want to delete this task?" } %>
+                <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#editModal"></i></span>
+                <!-- Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%= simple_form_for(review) do |f| %>
+                          <%= f.input :rating %>
+                          <%= f.input :comment %>
+                          <%= f.button :submit, class: "btn btn-success btn-lg"%>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </p>
+          <p class="my-2"><%= review.comment %></p>
+          <% if current_user.photo.attached? %>
+            <p><%= cl_image_tag(User.find(review.user_id).photo.key, :transformation=>[
+              {:height=>32, :width=>32, :crop=>"fit"},
+              {:radius => 50}
+              ]) %> <%= time_ago_in_words(review.created_at)%> ago</p>
+          <% else %>
+            <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
+          <% end %>
         </div>
       <% end %>
     <% else %>
