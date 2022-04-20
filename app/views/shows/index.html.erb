@@ -29,11 +29,10 @@
   </div>
   <div class="row">
     <% @shows.each do |show| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
+      <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-3">
         <%= link_to show_path(show), class: "text-decoration-none" do %>
-
           <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
-            <%= show.title %>
+            <h3><%= show.title %></h3>
           </div>
         <% end %>
       </div>
@@ -43,5 +42,6 @@
 <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  class="d-none">
 </div>
