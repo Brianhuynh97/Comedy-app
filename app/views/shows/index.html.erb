@@ -35,6 +35,14 @@
           <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
             <%= show.title %>
           </div>
+            <%# <div class="card"> %>
+              <%# <div class="card-description"> %>
+                <%# <p><strong id="location"><%= show.location %>
+              <%# </div> %>
+              <%# <div class="card-price"> %>
+                <%# <h2> <%= show.price %>
+              <%# </div> %>
+            <%# </div> %>
         <% end %>
       </div>
     <% end %>
