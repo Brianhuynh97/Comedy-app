@@ -48,6 +48,10 @@ mapButton.addEventListener('click', () => {
   mapButton.classList.add('d-none');
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 gridButton.addEventListener('click', () => {
   map.classList.add('d-none');
   mapButton.classList.remove('d-none');
