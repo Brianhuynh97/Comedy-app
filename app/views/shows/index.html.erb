@@ -33,7 +33,7 @@
         <%= link_to show_path(show), class: "text-decoration-none" do %>
 
           <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
-            <%= show.title %>
+            <%= show.comedian %>
           </div>
             <%# <div class="card"> %>
               <%# <div class="card-description"> %>
