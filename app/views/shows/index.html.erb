@@ -21,10 +21,11 @@
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">Comedy Shows</h3>
       <div>
-        <i class="px-1 layout-buttons fa-solid fa-map-location" id="mapicon"></i>
-        <i class="px-1 d-none layout-buttons fas fa-border-all" id="gridicon"></i>
+        <div id="mapicon" class="mx-3 btn btn-primary px-1 layout-buttons">Map View</div>
+        <div id="gridicon" class="d-none mx-3 btn btn-primary px-1 layout-buttons">Row View</div>
+        <%= link_to "Host a comedy show", new_show_path, class: "Host_comedy px-md-4 btn btn-success" %>
       </div>
-      <%= link_to "Host a comedy show", new_show_path, class: "Host_comedy px-md-4 btn btn-success" %>
+
     </div>
     <div id="gridactive">
       <div class="row justify-content-center justify-content-sm-start">
@@ -54,11 +55,12 @@
             <% @shows.each do |show| %>
                 <%= link_to show_path(show), class: "text-decoration-none" do %>
                     <div class="card-map rounded">
-                      <%= image_tag 'mic.png' %>
+                      <%= cl_image_tag(show.photo.key, :size => '100x100') %>
+                      <%# <%= cl_image_tag 'mic.png' %>
                       <div>
-                        <h4><%= show.title %></h4>
-                        <div class="info d-flex justify-content-between">
-                          <h5><%= show.datetime.strftime("%d/%m/%Y") %> </h5>
+                        <h5 class="mt-2"><%= show.title %></h5>
+                        <div class="info d-flex">
+                          <p><%= show.datetime.strftime("%d/%m/%Y") %> </p>
                         </div>
                       </div>
                     </div>
