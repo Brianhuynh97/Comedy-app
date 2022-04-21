@@ -40,22 +40,22 @@ let grid = document.getElementById("gridactive");
 let mapButton = document.getElementById("mapicon");
 let gridButton = document.getElementById("gridicon");
 
-mapButton.addEventListener('click', () => {
-  grid.classList.add('d-none');
-  gridButton.classList.remove('d-none');
+if (mapButton) {
+  mapButton.addEventListener('click', () => {
+    grid.classList.add('d-none');
+    gridButton.classList.remove('d-none');
 
-  map.classList.remove('d-none');
-  mapButton.classList.add('d-none');
-});
+    map.classList.remove('d-none');
+    mapButton.classList.add('d-none');
+  });
+}
 
-<<<<<<< HEAD
-=======
+if (gridButton) {
+  gridButton.addEventListener('click', () => {
+    map.classList.add('d-none');
+    mapButton.classList.remove('d-none');
 
->>>>>>> master
-gridButton.addEventListener('click', () => {
-  map.classList.add('d-none');
-  mapButton.classList.remove('d-none');
-
-  grid.classList.remove('d-none');
-  gridButton.classList.add('d-none');
-});
+    grid.classList.remove('d-none');
+    gridButton.classList.add('d-none');
+  });
+}
