@@ -55,8 +55,7 @@
       </div>
     </div>
   </div>
-
-
+  <%# REVIEWS %>
   <div class="mt-5 d-flex justify-content-between">
     <h4>Reviews</h4>
     <!-- Button trigger modal -->
@@ -114,14 +113,18 @@
                   </div>
                 </div>
           </p>
+
           <p class="my-2"><%= review.comment %></p>
-          <% if current_user.photo.attached? %>
-            <p><%= cl_image_tag(User.find(review.user_id).photo.key, :transformation=>[
-              {:height=>32, :width=>32, :crop=>"fit"},
-              {:radius => 50}
-              ]) %> <%= time_ago_in_words(review.created_at)%> ago</p>
+          <% if user_signed_in? && current_user.photo.attached? %>
+            <div class="d-flex flex-row-reverse">
+              <p ><%= cl_image_tag(User.find(review.user_id).photo.key,:alt=> "#{User.find(review.user_id).username}" , :transformation=>[
+                {:height=>32, :width=>32, :crop=>"fit"},
+                {:radius => 50}
+
+                ]) %> <%= time_ago_in_words(review.created_at)%> ago</p>
+            </div>
           <% else %>
-            <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
+            <p class="d-flex flex-row-reverse">Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
           <% end %>
         </div>
       <% end %>
@@ -130,5 +133,4 @@
         <p>Be the first to leave a review</p>
       </div>
   <% end %>
-
 </section>
