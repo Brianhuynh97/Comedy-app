@@ -78,6 +78,26 @@ a,
   }
 }
 
+.layout-buttons {
+  color: white;
+  font-size: larger;
+}
+
+#mapicon:hover,
+#gridicon:hover {
+  cursor: pointer;
+  color: steelblue;
+}
+
+
+#mapbox {
+  height: 600px;
+}
+
+#card-column {
+  height: 600px;
+  overflow-y: scroll;
+}
 
 // .Host_comedy {
 //   &:before {
