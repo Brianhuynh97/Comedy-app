@@ -1,14 +1,41 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-map {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: rgb(39, 38, 38);
+  margin-bottom: 4px;
+  text-decoration: none;
+
+  img {
+    width: 20%;
+    height: 100%;
+    margin-right: 8px;
+  }
+
+  .info {
+    width: 100%;
+    text-decoration: none;
+  }
+}
+
+#mapcards {
+  :hover {
+    color: white;
+  }
 }

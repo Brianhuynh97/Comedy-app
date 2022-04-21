@@ -9,4 +9,12 @@ class PagesController < ApplicationController
     @bookings = Booking.where(user: current_user)
     render :lists
   end
+
+  def about
+    render :about
+  end
+
+  def contact
+    render :contact
+  end
 end

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get "/home", to: "pages#home"
   get "/lists", to: "pages#lists"
+  get "/about", to: "pages#about"
+  get "/contact", to: "pages#contact"
+  get "/feedback", to: "pages#feedback"
 
   resources :shows do
     resources :reviews, only: %i[new create]
