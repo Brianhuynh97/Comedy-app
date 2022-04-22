@@ -103,6 +103,35 @@ a,
   overflow-y: scroll;
 }
 
+
+
+// SHOW PAGE STYLING
+
+section,
+#review {
+  color: $medium-grey;
+  background-color: $not-black;
+  margin: none;
+
+  .show-description {
+    border-radius: 8px;
+    padding: 20px;
+    background-color: $dark-grey;
+  }
+}
+
+
+// #review {
+//   color: $medium-grey;
+//   background-color: ;
+// }
+
+
+
+
+
+
+
 // .Host_comedy {
 //   &:before {
 //     color: #379af6;
