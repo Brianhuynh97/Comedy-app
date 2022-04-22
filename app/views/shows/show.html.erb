@@ -13,30 +13,25 @@
 <% end %>
 
 
-<section class="bg-white rounded p-5 my-5 container w-75">
-  <h4><%= @show.description %></h4>
-  <div class=" mt-5 card-trip-infos">
-    <table>
-      <tbody>
-        <tr>
-          <td><h4> <i class="fa fa-calendar" aria-hidden="true"></i></h4></td>
-          <td><h4> &nbsp; The show is on: <%= @show.datetime.strftime("%d/%m/%Y %H:%M") %> </h4></td>
-        </tr>
-        <tr>
-          <td><h4> <i class="fa fa-thumbs-up" aria-hidden="true"></i></h4></td>
-          <td><h4> &nbsp; The ticket price is <%= @show.price %> AUD</h4></td>
-        </tr>
-        <tr>
-          <td><h4> <i class="fa-solid fa-chair"></i></h4></td>
-          <td><h4> &nbsp; <%= @available_seats%> seats remaining</h4></td>
-        </tr>
-      </tbody>
-    </table>
+<section class="rounded p-5 my-5 container">
+  <div class="row justify-content-between">
+    <h5 class="col-xs-12 col-md-7 show-description"><%= @show.description %></h4>
+    <div class="show-description col-xs-12 col-md-4">
+      <div>
+        <h5> <i class="fa fa-calendar" aria-hidden="true"></i> The show is on: <%= @show.datetime.strftime("%d/%m/%Y %H:%M") %></h5>
+        <h5> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Price: <%= @show.price %> AUD </h5>
+        <h5> <i class="fa-solid fa-chair"></i> <%= @available_seats%> seats remaining</h5>
+      </div>
+      <div class="center align-items-center">
+        <button type="button" class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#bookModal">
+            Book Now
+          </button>
+      </div>
+    </div>
   </div>
+
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#bookModal">
-    Book Now
-  </button>
+
 
   <!-- Modal -->
   <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
@@ -49,17 +44,17 @@
         <div class="modal-body">
             <%= simple_form_for [ @show, @booking ] do |f| %>
               <%= f.input :seat_quantity, as: :string, required: true %>
-              <%= f.submit "Confirm Booking", class: "btn btn-success btn-lg" %>
+              <%= f.submit "Confirm Booking", class: "btn btn-pink btn-lg" %>
             <% end %>
         </div>
       </div>
     </div>
   </div>
   <%# REVIEWS %>
-  <div class="mt-5 d-flex justify-content-between">
+  <div id="review" class="mt-5 d-flex container justify-content-between">
     <h4>Reviews</h4>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newModal">
+    <button type="button" class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#newModal">
       Create Review
     </button>
 
@@ -75,7 +70,7 @@
             <%= simple_form_for [@show, @review] do |f| %>
               <%= f.input :rating %>
               <%= f.input :comment %>
-              <%= f.button :submit, class: "btn btn-success btn-lg"%>
+              <%= f.button :submit, class: "btn btn-pink btn-lg"%>
             <% end %>
           </div>
         </div>
@@ -84,7 +79,7 @@
   </div>
   <% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
-        <div class="card bg-light rounded mt-2 p-3 d-flex review">
+        <div class="show-description cardrounded mt-2 p-3 d-flex review">
           <p class="d-flex justify-content-between"><span class="review-stars mb-1"><% review.rating.times do %>
             <i class="fa-solid fa-star"></i>
           <% end %>
@@ -106,7 +101,7 @@
                         <%= simple_form_for(review) do |f| %>
                           <%= f.input :rating %>
                           <%= f.input :comment %>
-                          <%= f.button :submit, class: "btn btn-success btn-lg"%>
+                          <%= f.button :submit, class: "btn btn-pink btn-lg"%>
                         <% end %>
                       </div>
                     </div>
@@ -129,7 +124,7 @@
         </div>
       <% end %>
     <% else %>
-      <div class="card bg-light rounded mt-2 p-3 d-flex justify-content-center">
+      <div class="show-description card rounded mt-2 p-3 d-flex justify-content-center">
         <p>There aren't any reviews yet for <em><%= @show.title %><em></p>
       </div>
   <% end %>
