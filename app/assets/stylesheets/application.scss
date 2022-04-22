@@ -16,10 +16,28 @@
 @import "components/banner";
 @import "components/card";
 
+// adding spacing between icons and text
+i {
+  margin-right: 6px;
+}
+
+// adding extra spacing for logo icon and text
+.i-large {
+  margin-right: 8px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
 
 h1,
 h3,
-a,
 .Host_comedy {
   color: var(--text);
 
@@ -87,11 +105,11 @@ a,
   font-size: larger;
 }
 
-#mapicon:hover,
-#gridicon:hover {
-  cursor: pointer;
-  color: steelblue;
-}
+// #mapicon:hover,
+// #gridicon:hover {
+//   cursor: pointer;
+//   color: steelblue;
+// }
 
 
 #mapbox {

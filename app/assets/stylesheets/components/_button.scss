@@ -2,19 +2,33 @@
   color: white;
   padding: 8px 24px;
   border-radius: 8px;
-  background: deeppink;
-  transition: background 0.3s ease;
+  background: #ff037c;
+  transition: all 0.3s ease;
   margin: 16px 0;
   font-weight: bold;
 }
 
 .btn-pink:hover {
-  background: rgb(215, 17, 123);
+  background: #c4015f;
   color: white;
 }
 
-.btn-pink:focus,
-.btn-pink:active {
+.btn:focus,
+.btn:active {
   outline: none !important;
   box-shadow: none;
+}
+
+.btn-ghost {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: regular;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
