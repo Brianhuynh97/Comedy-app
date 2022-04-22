@@ -13,7 +13,8 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      // style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/navigation-night-v1"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -23,7 +24,7 @@ export default class extends Controller {
       mapboxgl: mapboxgl
     }));
 
-    this.map.on('load', () => {
+    this.map.on('idle', () => {
       this.map.resize();
     })
   }
@@ -40,11 +41,17 @@ export default class extends Controller {
       // customMarker.style.width = "25px"
       // customMarker.style.height = "25px"
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ "color": "#ff037c" })
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(this.map)
     });
+  }
+
+  setMarkerColor(marker, color) {
+    var $elem = jQuery(marker.getElement());
+    $elem.find('svg g[fill="' + marker._color + '"]').attr('fill', color);
+    marker._color = color;
   }
 
   #fitMapToMarkers() {
