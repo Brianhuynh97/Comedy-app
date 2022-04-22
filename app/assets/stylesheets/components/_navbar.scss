@@ -4,10 +4,18 @@
 
 .navbar-brand {
   display: flex;
-  margin: 8px;
-  padding: 8px;
   align-items: center;
   font-weight: bold;
+}
+// adding spacing between icons and text
+i {
+  margin-right: 6px;
+}
+
+// adding extra spacing for logo icon and text
+.logo {
+  margin-right: 8px;
+  font-size: 30px;
 }
 
 :root {
@@ -78,13 +86,13 @@ body {
 //   }
 // }
 
-.navigation {
-  position: fixed;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
+// .navigation {
+//   position: fixed;
+//   top: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: right;
+// }
 
 ul {
   display: flex;
