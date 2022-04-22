@@ -13,7 +13,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .8rem;
 }
 
 .hero {
@@ -23,7 +24,7 @@ body {
   height: 100vh;
 }
 
-.hero--video {
+.hero--image {
   min-width: 100%;
   min-height: 100vh;
   z-index: 1;
