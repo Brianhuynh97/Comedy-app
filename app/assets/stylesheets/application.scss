@@ -16,6 +16,15 @@
 @import "components/banner";
 @import "components/card";
 
+// adding spacing between icons and text
+i {
+  margin-right: 6px;
+}
+
+// adding extra spacing for logo icon and text
+.i-large {
+  margin-right: 8px;
+}
 
 h1,
 h3,

@@ -7,21 +7,16 @@
   align-items: center;
   font-weight: bold;
 }
-// adding spacing between icons and text
-i {
-  margin-right: 6px;
-}
-
-// adding extra spacing for logo icon and text
-.logo {
-  margin-right: 8px;
-  font-size: 30px;
-}
 
 :root {
   --background: #101010;
   --text: #FFF;
   --highlight: #00e1ff;
+}
+
+// to increase the microphone logo size
+.logo {
+  font-size: 30px;
 }
 
 // @import url('https://fonts.googleapis.com/css?family=Oswald');
