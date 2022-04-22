@@ -22,13 +22,13 @@
     <div class="right-panel col-xs-12 col-lg-6">
       <h2 class="my-3">Booked Shows</h2>
       <% @bookings.each do |booking| %>
-        <%= link_to show_path(Show.find(booking.show_id)), class: "card-lists rounded text-decoration-none" do %>
+        <%= link_to show_path(Show.find(booking.show_id)), class: "card-lists d-flex rounded text-decoration-none" do %>
           <%= cl_image_tag(Show.find(booking.show_id).photo.key, :size => '100x100') %>
-          <div>
+          <div class="flex-grow-1">
             <h5><%=Show.find(booking.show_id).title%></h5>
             <div class="info d-flex justify-content-between">
               <p> <i class="fa fa-calendar" aria-hidden="true"></i> <%= Show.find(booking.show_id).datetime.strftime("%d/%m/%Y %H:%M") %></p>
-              <p> <i class="fa-solid fa-chair"></i><%= booking.seat_quantity %> </p>
+              <p> <i class="pl-3 fa-solid fa-chair"></i><%= booking.seat_quantity %> </p>
             </div>
           </div>
         <% end %>

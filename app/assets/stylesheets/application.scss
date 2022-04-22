@@ -81,7 +81,7 @@ h3,
 .review-icons {
 
   a {
-    color: red;
+    color: $pink;
   }
 
 
@@ -129,7 +129,6 @@ section,
 #review {
   color: $medium-grey;
   background-color: $not-black;
-  margin: none;
 
   .show-description {
     border-radius: 8px;
@@ -138,6 +137,14 @@ section,
   }
 }
 
+#reviewimage {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 8px;
+  }
+}
 
 // #review {
 //   color: $medium-grey;

@@ -6,20 +6,17 @@
         </div> %>
 
       <!-- Logo -->
-      <li class="text-center">
+      <%# <li class="text-center"> %>
         <%= link_to home_path, class: "navbar-brand" do %>
         <div class="i-large logo"><i class="fa-solid fa-microphone-lines"></i></div><%= t(".profile", default: "Standup Finder") %>
         <% end %>
-      </li>
+      <%# </li> %>
 
       <!-- Right Navigation -->
       <!-- Different navigation if login or not -->
       <% if user_signed_in? %>
         <div class="navigation">
             <div class="dropdown">
-              <% if current_user.photo.attached?  %>
-                <%= cl_image_tag current_user.photo.key, height: 40, crop: :fill, class: "avatar-navbar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
-              <% end %>
               <ul class="navbar-dropdown-menu">
                 <li class="text-center">
                   <%= link_to new_show_path, class: "navbar-item navbar-link" do %>

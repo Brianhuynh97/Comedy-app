@@ -18,8 +18,8 @@
     <h5 class="col-xs-12 col-md-7 show-description"><%= @show.description %></h4>
     <div class="show-description col-xs-12 col-md-4">
       <div>
-        <h5> <i class="fa fa-calendar" aria-hidden="true"></i> The show is on: <%= @show.datetime.strftime("%d/%m/%Y %H:%M") %></h5>
-        <h5> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Price: <%= @show.price %> AUD </h5>
+        <h5> <i class="fa fa-calendar" aria-hidden="true"></i> <%= @show.datetime.strftime("%d/%m/%Y %H:%M") %></h5>
+        <h5> <i class="fa-solid fa-dollar-sign"></i>  <%= @show.price %> AUD </h5>
         <h5> <i class="fa-solid fa-chair"></i> <%= @available_seats%> seats remaining</h5>
       </div>
       <div class="center align-items-center">
@@ -51,13 +51,12 @@
     </div>
   </div>
   <%# REVIEWS %>
-  <div id="review" class="mt-5 d-flex container justify-content-between">
+  <div id="review" class="mt-5 d-flex container justify-content-between align-items-center">
     <h4>Reviews</h4>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#newModal">
       Create Review
     </button>
-
     <!-- Modal -->
     <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -77,9 +76,9 @@
       </div>
     </div>
   </div>
-  <% if !@reviews.empty? %>
+<% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
-        <div class="show-description cardrounded mt-2 p-3 d-flex review">
+        <div class="card show-description rounded mt-2 p-3 d-flex review">
           <p class="d-flex justify-content-between"><span class="review-stars mb-1"><% review.rating.times do %>
             <i class="fa-solid fa-star"></i>
           <% end %>
@@ -108,23 +107,21 @@
                   </div>
                 </div>
           </p>
-
           <p class="my-2"><%= review.comment %></p>
           <% if user_signed_in? && current_user.photo.attached? %>
-            <div class="d-flex flex-row-reverse">
-              <p ><%= cl_image_tag(User.find(review.user_id).photo.key,:alt=> "#{User.find(review.user_id).username}" , :transformation=>[
-                {:height=>32, :width=>32, :crop=>"fit"},
-                {:radius => 50}
+            <p id="reviewimage"><%= cl_image_tag(User.find(review.user_id).photo.key,  :transformation=>[
+              {:height=>32, :width=>32, :crop=>"fit"},
+              {:radius => 10},
+              {:background=>"#1E1B1E"}
 
-                ]) %> <%= time_ago_in_words(review.created_at)%> ago</p>
-            </div>
+              ]) %><%= time_ago_in_words(review.created_at)%> ago</p>
           <% else %>
-            <p class="d-flex flex-row-reverse">Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
+            <p>Posted by: <%= User.find(review.user_id).username %> - <%= time_ago_in_words(review.created_at)%> ago</p>
           <% end %>
         </div>
       <% end %>
     <% else %>
-      <div class="show-description card rounded mt-2 p-3 d-flex justify-content-center">
+      <div class="show-description rounded mt-2 p-3 d-flex justify-content-start">
         <p>There aren't any reviews yet for <em><%= @show.title %><em></p>
       </div>
   <% end %>
