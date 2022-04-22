@@ -30,10 +30,14 @@
     <div id="gridactive">
       <div class="row justify-content-center justify-content-sm-start">
         <% @shows.each do |show| %>
-            <div class="col-8 col-sm-6 col-md-3 col-xl-2 mb-5">
+            <div class="col-8 col-sm-6 col-md-3 col-xl-2 mb-5 card-tall-all">
               <%= link_to show_path(show), class: "text-decoration-none" do %>
-                <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
-                  <h3><%= show.title%></h3>
+                <div class="card-tall" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= show.photo.attached? ? cl_image_path(show.photo.key) : asset_path('mic.png')%>)">
+                </div>
+                <div class="card-tall-info" data-aos="zoom-in">
+                  <h4><%= show.comedian%></h4>
+                  <p><%= show.title%><p>
+                  <p>$<%= show.price.round %><p>
                 </div>
               <% end %>
             </div>
