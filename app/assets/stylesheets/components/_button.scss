@@ -5,9 +5,16 @@
   background: deeppink;
   transition: background 0.3s ease;
   margin: 16px 0;
+  font-weight: bold;
 }
 
 .btn-pink:hover {
   background: rgb(215, 17, 123);
   color: white;
+}
+
+.btn-pink:focus,
+.btn-pink:active {
+  outline: none !important;
+  box-shadow: none;
 }

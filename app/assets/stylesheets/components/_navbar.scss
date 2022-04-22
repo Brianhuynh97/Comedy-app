@@ -1,15 +1,22 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: rgb(0, 0, 0);
+  justify-content: flex-end;
+}
+
+.navbar-brand {
+  display: flex;
+  margin: 8px;
+  padding: 8px;
+  align-items: center;
+  font-weight: bold;
 }
 
 :root {
-  --background: #000;
+  --background: #101010;
   --text: #FFF;
-  --highlight: #379af6;
+  --highlight: #00e1ff;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+// @import url('https://fonts.googleapis.com/css?family=Oswald');
 
 body {
   background: var(--background);
@@ -30,49 +37,49 @@ body {
   // flex-direction: column;
 }
 
-.theme-switch {
-  --background: rgb(255, 255, 255);
-  --text: #000;
-  color: var(--text);
-  width: 70px;
-  height: 30px;
-  background: var(--highlight);
-  border-radius: 50px;
-  position: relative;
+// .theme-switch {
+//   --background: rgb(255, 255, 255);
+//   --text: #000;
+//   color: var(--text);
+//   width: 70px;
+//   height: 30px;
+//   background: var(--highlight);
+//   border-radius: 50px;
+//   position: relative;
 
-  .switch {
-    background: white;
-    width: 24px;
-    height: 24px;
-    background: var(--background);
-    border-radius: 100%;
-    position: absolute;
-    top: 3px;
-    left: 4px;
-    transition: 0.5s all ease;
-  }
-}
+//   .switch {
+//     background: white;
+//     width: 24px;
+//     height: 24px;
+//     background: var(--background);
+//     border-radius: 100%;
+//     position: absolute;
+//     top: 3px;
+//     left: 4px;
+//     transition: 0.5s all ease;
+//   }
+// }
 
-.light-theme {
-  --background: #FFF;
-  --text: #000;
-  background: var(--background);
+// .light-theme {
+//   --background: #FFF;
+//   --text: #000;
+//   background: var(--background);
 
-  .theme-switch {
-    background: var(--text);
+//   .theme-switch {
+//     background: var(--text);
 
-    .switch {
-      transform: translateX(37px);
-    }
-  }
+//     .switch {
+//       transform: translateX(37px);
+//     }
+//   }
 
-  a {
-    color: var(--text);
-  }
-}
+//   a {
+//     color: var(--text);
+//   }
+// }
 
 .navigation {
-  // position: fixed;
+  position: fixed;
   top: 0;
   display: flex;
   align-items: center;
@@ -87,9 +94,9 @@ ul {
     margin: 10px 30px;
     position: relative;
     color: var(--text);
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    text-transform: uppercase;
+    // font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    text-transform: none;
     text-decoration: none;
 
     &:before {
