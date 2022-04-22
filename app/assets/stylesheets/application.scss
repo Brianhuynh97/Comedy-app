@@ -26,9 +26,18 @@ i {
   margin-right: 8px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 h1,
 h3,
-a,
 .Host_comedy {
   color: var(--text);
 
