@@ -1,15 +1,15 @@
-<div class="container-login container bg-light w-75 p-5">
+<div class="container-login container bg-dark w-75 p-5 text-light rounded">
   <div class="row-login">
 
-      <div class="load">
+      <%# <div class="load">
         <hr/><hr/><hr/><hr/>
-      </div>
+      </div> %>
 
     <div class="login">
 
-      <div class="form text-center">
+      <div class="form">
 
-        <h2>Log in</h2>
+        <h2 class="mb-4">Log in to Standup Finder</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -24,8 +24,8 @@
       </div>
 
       <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
-          <p>By signing in, you agree to Standup Finder's Terms of service, including Additional terms, and Privacy policy</p>
+          <%= f.button :submit, "Log in", class: "btn btn-pink btn-lg" %>
+          <p>By signing in, you agree to Standup Finder's Terms of Service, Terms & Conditions, and Privacy Policy</p>
       </div>
       <%= render "devise/shared/links" %>
       <% end %>
@@ -34,7 +34,7 @@
   </div>
 </div>
 
-
+<%#
 <style>
 .container-login {
   background: rgba(241, 206, 184, 1);
@@ -84,4 +84,4 @@
   color: #7a4b4b;
 }
 
-</style>
+</style> %>

@@ -1,22 +1,20 @@
-<div class="container-registration container bg-light w-75 p-5">
+<div class="container-registration container bg-dark w-75 p-5 text-light rounded">
   <div class="row-register">
 
-    <div id="loader">
+    <%# <div id="loader">
 	    <div id="d1"></div>
 	    <div id="d2"></div>
 	    <div id="d3"></div>
 	    <div id="d4"></div>
 	    <div id="d5"></div>
-    </div>
+    </div> %>
 
     <div class="signup">
-      <div class="form text-center">
+      <div class="form">
 
-          <div class="item">✍</div>
+        <h2 class="mb-2">Join Standup Finder</h2>
+        <h6 class="mb-4">Find shows and discover new comedians in Melbourne.</h6>
 
-        <h1>Welcome</h1>
-        <h3>Let's create your account!</h1>
-        <br>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -46,7 +44,7 @@
 
         <br>
         <div class="form-actions">
-        <%= f.button :submit, "Sign up", class:"btn btn-success"%>
+        <%= f.button :submit, "Sign up", class: "btn btn-pink btn-lg"%>
         </div>
         <br>
         <hr>
@@ -57,7 +55,7 @@
   </div>
 </div>
 
-<style>
+<%# <style>
 .container-registration {
   background:rgba(241, 206, 184, 1);
   background:
@@ -124,4 +122,4 @@
   color: #000000 ;
 }
 
-</style>
+</style> %>
