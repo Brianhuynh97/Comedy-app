@@ -106,8 +106,7 @@ h3,
 }
 
 #mapicon:hover,
-#gridicon:hover {
-}
+#gridicon:hover {}
 
 
 #mapbox {
@@ -133,6 +132,15 @@ section,
     padding: 20px;
     background-color: $dark-grey;
   }
+
+  h6 {
+    color: $aqua;
+
+    &:hover {
+      color: rgb(46, 240, 240);
+      cursor: pointer;
+    }
+  }
 }
 
 #reviewimage {
@@ -143,6 +151,8 @@ section,
     margin-right: 8px;
   }
 }
+
+
 
 // #review {
 //   color: $medium-grey;

@@ -13,7 +13,7 @@
           <div>
             <h5 class="mt-2"><%= show.title %></h5>
             <div class="info d-flex">
-              <p><i class="fa fa-calendar" aria-hidden="true"></i><%= show.datetime.strftime("%d/%m/%Y %H:%M") %> </p>
+              <p><i class="fa fa-calendar" aria-hidden="true"></i><%= show.datetime.strftime("%d/%m/%y %I:%M %p") %> </p>
             </div>
           </div>
         <% end %>
@@ -27,7 +27,7 @@
           <div class="flex-grow-1">
             <h5><%=Show.find(booking.show_id).title%></h5>
             <div class="info d-flex justify-content-between">
-              <p> <i class="fa fa-calendar" aria-hidden="true"></i> <%= Show.find(booking.show_id).datetime.strftime("%d/%m/%Y %H:%M") %></p>
+              <p> <i class="fa fa-calendar" aria-hidden="true"></i> <%= Show.find(booking.show_id).datetime.strftime("%d/%m/%y %I:%M %p") %></p>
               <p> <i class="pl-3 fa-solid fa-chair"></i><%= booking.seat_quantity %> </p>
             </div>
           </div>
