@@ -38,6 +38,8 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
         <%= f.input :date_of_birth,
+                start_year: Date.today.year - 50,
+                end_year: Date.today.year - 10,
                 required: true %>
         <%= f.input :photo, as: :file %>
         </div>
@@ -91,7 +93,7 @@
   width: 100px;
   height: 40px;
   position: absolute;
-  top: 37%;
+  top: 31%;
   left: 55%;
   margin: -20px -50px;
 }
