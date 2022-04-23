@@ -55,7 +55,7 @@
           id="mapbox">
         </div>
         <div class="col-md-5 d-none d-md-block " id="card-column">
-          <div id="mapcards" class="row">
+          <div id="mapcards">
             <% @shows.each do |show| %>
                 <%= link_to show_path(show), class: "text-decoration-none" do %>
                     <div class="card-map rounded">
