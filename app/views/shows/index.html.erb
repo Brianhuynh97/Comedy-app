@@ -48,24 +48,26 @@
 
   <div id="mapactive" class="d-none">
     <div class="row">
-        <div class="col-md-7 col-xs-10 rounded"
+        <div class="col-lg-7 col-xs-10 rounded"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
           id="mapbox">
         </div>
-        <div class="col-md-5 d-none d-md-block " id="card-column">
-          <div id="mapcards">
+        <div class="col-md-5 d-none d-lg-block " id="card-column">
+          <div id="mapcards" class="row">
             <% @shows.each do |show| %>
                 <%= link_to show_path(show), class: "text-decoration-none" do %>
-                    <div class="card-map rounded">
+                    <div class="card-map d-flex my-1 rounded">
                       <%= cl_image_tag(show.photo.key, :size => '100x100') %>
                       <%# <%= cl_image_tag 'mic.png' %>
-                      <div>
-                        <h5 class="mt-2"><%= show.title %></h5>
-                        <div class="info d-flex">
-                          <p><i class="fa fa-calendar" aria-hidden="true"></i><%= show.datetime.strftime("%d/%m/%Y") %> </p>
+                      <div class="flex-grow-1 p-3">
+                        <div class="row info">
+                          <h6  class="d-flex align-items-center justify-content-between"><%= show.comedian %> <span>$<%= show.price %></span> </h6>
+                          <p ><%= show.title %></p>
                         </div>
+                        <%# <p class="mt-1"></p> %>
+
                       </div>
                     </div>
                 <% end %>

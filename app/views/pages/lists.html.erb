@@ -7,34 +7,37 @@
     <div class="left-panel col-xs-12 col-lg-6">
       <h2 class="my-3">Hosting Shows</h2>
       <% @shows.each do |show| %>
-        <%= link_to show_path(show), class: "card-lists rounded text-decoration-none" do %>
-          <%= cl_image_tag(show.photo.key, :size => '100x100') %>
-          <%# <%= cl_image_tag 'mic.png' %>
-          <div>
-            <h5 class="mt-2"><%= show.title %></h5>
-            <div class="info d-flex">
-              <p><i class="fa fa-calendar" aria-hidden="true"></i><%= show.datetime.strftime("%d/%m/%y %I:%M %p") %> </p>
-            </div>
-          </div>
-        <% end %>
+        <%= link_to show_path(show), class: "text-decoration-none" do %>
+                    <div class="card-map d-flex my-1 rounded">
+                      <%= cl_image_tag(show.photo.key, :size => '100x100') %>
+                      <%# <%= cl_image_tag 'mic.png' %>
+                      <div class="flex-grow-1 p-3">
+                        <div class="row info">
+                          <h6  class="d-flex justify-content-between"><%= show.comedian %> <span>$<%= show.price %></span> </h6>
+                          <p ><%= show.title %></p>
+                        </div>
+                        <%# <p class="mt-1"></p> %>
+
+                      </div>
+                    </div>
+                <% end %>
       <% end %>
     </div>
     <div class="right-panel col-xs-12 col-lg-6">
       <h2 class="my-3">Booked Shows</h2>
       <% @bookings.each do |booking| %>
-        <%= link_to show_path(Show.find(booking.show_id)), class: "card-lists d-flex rounded text-decoration-none" do %>
-          <%= cl_image_tag(Show.find(booking.show_id).photo.key, :size => '100x100') %>
-          <div class="flex-grow-1">
-            <h5><%=Show.find(booking.show_id).title%></h5>
-            <div class="info d-flex justify-content-between">
-              <p> <i class="fa fa-calendar" aria-hidden="true"></i> <%= Show.find(booking.show_id).datetime.strftime("%d/%m/%y %I:%M %p") %></p>
-              <p> <i class="pl-3 fa-solid fa-chair"></i><%= booking.seat_quantity %> </p>
+      <%= link_to show_path(Show.find(booking.show_id)), class: "text-decoration-none" do %>
+          <div class="card-map d-flex my-1 rounded">
+            <%= cl_image_tag(Show.find(booking.show_id).photo.key, :size => '100x100') %>
+            <div class="flex-grow-1 p-3">
+              <div class="row info">
+                <h6  class="d-flex justify-content-between"><%= Show.find(booking.show_id).comedian %> <span><i class="pl-3 fa-solid fa-chair"></i><%= booking.seat_quantity %> </span> </h6>
+                <p ><%= Show.find(booking.show_id).title %></p>
+              </div>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
-
-
 </div>
