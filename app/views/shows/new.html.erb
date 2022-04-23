@@ -1,4 +1,4 @@
-<div class="bg-white container w-75 p-5 my-5">
+<div class="bg-light container w-75 p-5 my-5">
   <h1 id="newshow">List a new comedy show</h1>
   <%= simple_form_for [ @show ] do |f| %>
     <%= f.input :title %>
@@ -9,6 +9,6 @@
     <%= f.input :capacity %>
     <%= f.input :datetime %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-success btn-lg" %>
+    <%= f.button :submit, class: "btn btn-pink btn-lg" %>
   <% end %>
 </div>

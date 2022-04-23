@@ -36,10 +36,10 @@
   <!-- Modal -->
   <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content show-description">
         <div class="modal-header">
           <h5 class="modal-title" id="bookModalLabel">Book</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="bg-light btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <%= simple_form_for [ @show, @booking ] do |f| %>
@@ -60,10 +60,10 @@
     <!-- Modal -->
     <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content show-description">
           <div class="modal-header">
             <h5 class="modal-title" id="newModalLabel">Create Review</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="bg-light btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <%= simple_form_for [@show, @review] do |f| %>
