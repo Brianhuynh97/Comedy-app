@@ -5,10 +5,9 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  // padding: 0;
-  color: #1E1B1E;
-  background-color: #F4F4F4;
-  border-color: #101010;
+  padding: 16px;
+  color: #ffffff;
+  background-color: $not-black;
   max-width: 250px;
-  box-shadow: 3px 3px 2px #1E1B1E;
+  border-radius: 8px;
 }

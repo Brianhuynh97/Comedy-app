@@ -34,6 +34,11 @@ a {
 a:hover {
   text-decoration: none;
   color: white;
+  &:focus,&:active {
+    text-decoration: none;
+    outline: none !important;
+    box-shadow: none;
+  }
 }
 
 h1,
