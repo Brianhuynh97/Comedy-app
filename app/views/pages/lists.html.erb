@@ -1,4 +1,4 @@
-<div class="lists rounded p-5 my-5 container w-75">
+<div class="lists rounded p-5 my-5 container">
     <div class="eyes">
       <div class="eye eye-left"></div>
       <div class="eye eye-right"></div>
@@ -8,7 +8,7 @@
       <h2 class="my-3">Hosting Shows</h2>
       <% @shows.each do |show| %>
         <%= link_to show_path(show), class: "text-decoration-none" do %>
-                    <div class="card-map d-flex my-1 rounded">
+                    <div class="card-map  d-flex my-2 rounded">
                       <%= cl_image_tag(show.photo.key, :size => '100x100') %>
                       <%# <%= cl_image_tag 'mic.png' %>
                       <div class="flex-grow-1 p-3">
@@ -27,7 +27,7 @@
       <h2 class="my-3">Booked Shows</h2>
       <% @bookings.each do |booking| %>
       <%= link_to show_path(Show.find(booking.show_id)), class: "text-decoration-none" do %>
-          <div class="card-map d-flex my-1 rounded">
+          <div class="card-map my-1 d-flex my-2 rounded">
             <%= cl_image_tag(Show.find(booking.show_id).photo.key, :size => '100x100') %>
             <div class="flex-grow-1 p-3">
               <div class="row info">
